@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Semáforo CTPAT v2</title>
+  <meta name="description" content="PWA de semáforo CTPAT con lógica 60% Rojo, 40% Verde." />
+  <meta name="theme-color" content="#00c853" />
+
+  <!-- Manifest PWA -->
+  <link rel="manifest" href="manifest.json" />
+  <!-- Favicon -->
+  <link rel="icon" href="icons/icon-192.png" type="image/png" />
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="cartel">
+    <div class="header-aviso">
+      <div class="logos">
+        <img class="logo" src="assets/logo-left.png" alt="Logo empresa" />
+        <img class="logo" src="assets/logo-right.png" alt="Logo programa" />
+      </div>
+      <h1>AVISO</h1>
+    </div>
+
+    <div class="texto-protocolo">
+      <p>
+        COMO PARTE A CUMPLIMIENTO C-TPAT<br/>
+        TODO EMPLEADO, VISITANTE,<br/>
+        PROVEEDOR Y CONTRATISTA ES SUJETO A<br/>
+        INSPECCIÓN VEHICULAR DURANTE<br/>
+        ENTRADA Y SALIDA.
+      </p>
+    </div>
+
+    <div class="seccion-semaforo">
+      <div class="fila-indicador" aria-label="Estado verde (avance)">
+        <div class="luz luz-verde" id="luzVerde"></div>
+        <div class="igual" aria-hidden="true"></div>
+        <div class="etiqueta"><div class="texto-grande">AVANCE</div></div>
+      </div>
+      <div class="fila-indicador" aria-label="Estado rojo (revisión)">
+        <div class="luz luz-roja" id="luzRoja"></div>
+        <div class="igual" aria-hidden="true"></div>
+        <div class="etiqueta"><div class="texto-grande">REVISIÓN</div></div>
+      </div>
+    </div>
+
+    <div class="acciones">
+      <button class="btn primario" id="btnAccionar">Accionar</button>
+      <button class="btn secundario" id="btnApagar">Apagar</button>
+    </div>
+
+    <div class="pie">
+      Hecho por Luis • Demo tipo cartel (HTML/CSS/JS) • Probabilidades: Rojo 60% | Verde 40%
+    </div>
+  </div>
+
+  <!-- Lógica principal -->
+  <script src="script.js"></script>
+
+  <!-- Registro del Service Worker -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', async () => {
+        try {
+          const reg = await navigator.serviceWorker.register('sw.js', { scope: './' });
+          console.log('[SW] Registrado con scope:', reg.scope);
+        } catch (err) {
+          console.error('[SW] Error de registro:', err);
+        }
+      });
+    }
+  </script>
+</body>
+</html>

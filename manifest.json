@@ -1,0 +1,15 @@
+{
+  "name": "Semáforo CTPAT v2",
+  "short_name": "AVISO CTPAT",
+  "description": "Cartel AVISO C-TPAT con semáforo (Rojo 60% / Verde 40%), PWA y modo offline.",
+  "start_url": "/semaforo-ctpat-v2/",
+  "scope": "/semaforo-ctpat-v2/",
+  "display": "standalone",
+  "background_color": "#f5f6f8",
+  "theme_color": "#3f6fb5",
+  "lang": "es-MX",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}
